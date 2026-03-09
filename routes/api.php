@@ -12,6 +12,8 @@ use App\Http\Controllers\XpController;
 use Illuminate\Support\Facades\Route;
 
 Route::middleware('auth:sanctum')->group(function () {
+    Route::get('user', fn (Illuminate\Http\Request $r) => $r->user());
+
     Route::post('projects/generate', [ProjectController::class, 'generate']);
     Route::apiResource('projects', ProjectController::class);
     Route::apiResource('projects.blocks', ScheduleBlockController::class)->shallow();
